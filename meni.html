@@ -92,9 +92,6 @@
     <div class="container">
       <div id="menu-root" aria-live="polite"><!-- Render target --></div>
       <p id="menu-status" class="center" style="font-size:.85rem;color:var(--text-dim);margin-top:1.5rem"></p>
-      <p class="center" style="font-size:.85rem;color:var(--text-dim);margin-top:.5rem;font-style:italic">
-        * PDV je uračunat u cenu.
-      </p>
     </div>
   </section>
 
@@ -145,7 +142,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2025 Monday Café Kragujevac. Sva prava zadržana.</div>
+        <div>Monday Café Kragujevac &copy; <span data-current-year>2026</span>.</div>
         <div>Za savršen početak nedelje.</div>
       </div>
     </div>
@@ -214,6 +211,9 @@
   <script src="/meni.js"></script>
 
   <script>
+    // Automatska tekuća godina u footer-u
+    document.querySelectorAll('[data-current-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
     // Theme toggle
     const root = document.documentElement;
     const saved = localStorage.getItem('monday-theme');

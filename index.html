@@ -306,13 +306,16 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2025 Monday Café Kragujevac. Sva prava zadržana.</div>
+        <div>Monday Café Kragujevac &copy; <span data-current-year>2026</span>.</div>
         <div>Za savršen početak nedelje.</div>
       </div>
     </div>
   </footer>
 
   <script>
+    // Automatska tekuća godina u footer-u
+    document.querySelectorAll('[data-current-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
     // Theme toggle (dark je default)
     const root = document.documentElement;
     const saved = localStorage.getItem('monday-theme');
