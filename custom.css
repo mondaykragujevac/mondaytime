@@ -105,6 +105,9 @@ section { padding: 5rem 0; }
   -webkit-backdrop-filter: saturate(150%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
+[data-theme="light"] .nav {
+  background: rgba(255, 255, 255, 0.85);
+}
 
 .nav-inner {
   display: flex;
@@ -683,6 +686,9 @@ section { padding: 5rem 0; }
   top: 64px;
   z-index: 30;
   padding: 1rem 0;
+}
+[data-theme="light"] .jumpbar {
+  background: rgba(255, 255, 255, 0.85);
 }
 .jumpbar-inner {
   max-width: 1200px;
