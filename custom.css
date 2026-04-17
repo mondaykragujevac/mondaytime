@@ -2,7 +2,7 @@
 
 /* ---------- Typography ---------- */
 body {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 400;
   letter-spacing: 0.005em;
   line-height: 1.7;
@@ -13,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.01em;
   color: #f5ebdd;
@@ -21,13 +21,13 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 .font-logo {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
 
 .font-script {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: italic;
 }
@@ -127,7 +127,7 @@ body > * { position: relative; z-index: 1; }
   transform: scaleX(1);
 }
 .monday-brand {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 900;
   letter-spacing: 0.2em;
   font-size: 22px;
@@ -178,7 +178,7 @@ body > * { position: relative; z-index: 1; }
   width: 30px; height: 1px; background: #e7b35a; display: inline-block;
 }
 .hero-title {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 900;
   font-size: clamp(3rem, 10vw, 7rem);
   line-height: 1.12;
@@ -197,7 +197,7 @@ body > * { position: relative; z-index: 1; }
   color: #e7b35a;
 }
 .hero-sub {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-weight: 300;
   font-size: clamp(1.1rem, 2.4vw, 1.6rem);
@@ -296,7 +296,7 @@ body > * { position: relative; z-index: 1; }
   width: 24px; height: 1px; background: #e7b35a;
 }
 .section-title {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   color: #f5ebdd;
@@ -310,7 +310,7 @@ body > * { position: relative; z-index: 1; }
 
 /* ---------- About text ---------- */
 .about-para {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.85;
   color: rgba(245,235,221,0.88);
@@ -320,16 +320,36 @@ body > * { position: relative; z-index: 1; }
 }
 .about-para strong { color: #e7b35a; font-weight: 600; }
 .about-para.quote {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: clamp(1.15rem, 1.8vw, 1.4rem);
   color: #e7b35a;
   padding: 0 1rem;
 }
 
-/* ---------- Lokacija sekcija — topla prigušena zlatna pozadina ---------- */
-#lokacija.section {
-  background: linear-gradient(135deg, #3a2a13 0%, #241a0d 100%);
+/* ---------- Alternacija sekcija: base-100 crno / base-200 zlatno #e7b35a ---------- */
+.bg-base-200 {
+  color: #1a1208;
+}
+.bg-base-200 .section-eyebrow {
+  color: #3a2812;
+}
+.bg-base-200 .section-eyebrow::before,
+.bg-base-200 .section-eyebrow::after {
+  background: #3a2812;
+}
+.bg-base-200 .section-title {
+  color: #0a0604;
+}
+.bg-base-200 .section-title em {
+  color: #3a2812;
+}
+.bg-base-200 .divider-star {
+  color: #3a2812;
+}
+.bg-base-200 .divider-star::before,
+.bg-base-200 .divider-star::after {
+  background: linear-gradient(to right, transparent, rgba(58,40,18,0.5), transparent);
 }
 
 /* ---------- Info cards (Lokacija / Vreme / Kontakt) — tamne, sa okolnim glow-om ---------- */
@@ -368,14 +388,14 @@ body > * { position: relative; z-index: 1; }
   box-shadow: inset 0 0 20px rgba(231,179,90,0.06);
 }
 .info-card h3 {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #f5ebdd;
   margin-bottom: 12px;
 }
 .info-card p {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgba(245,235,221,0.8);
   margin: 2px 0;
   font-size: 0.95rem;
@@ -412,13 +432,13 @@ body > * { position: relative; z-index: 1; }
   text-shadow: 0 0 30px rgba(231,179,90,0.5);
 }
 .promo-card h3 {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: #f5ebdd;
   margin-bottom: 10px;
 }
 .promo-card .price {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: #e7b35a;
   font-weight: 700;
@@ -451,7 +471,7 @@ body > * { position: relative; z-index: 1; }
 }
 .menu-card:hover .icon { transform: scale(1.1); }
 .menu-card h4 {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: #f5ebdd;
@@ -513,7 +533,7 @@ body > * { position: relative; z-index: 1; }
   box-shadow: inset 0 0 25px rgba(231,179,90,0.08);
 }
 .menu-category-head h2 {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   color: #f5ebdd;
   margin-bottom: 8px;
@@ -543,7 +563,7 @@ body > * { position: relative; z-index: 1; }
 .price-name {
   flex: 0 0 auto;
   color: #f5ebdd;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 1rem;
 }
@@ -555,7 +575,7 @@ body > * { position: relative; z-index: 1; }
 }
 .price-value {
   flex: 0 0 auto;
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 700;
   color: #e7b35a;
   font-size: 1.15rem;
@@ -595,7 +615,7 @@ body > * { position: relative; z-index: 1; }
   text-align: center;
 }
 .monday-footer .foot-logo {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 900;
   font-size: 32px;
   letter-spacing: 0.2em;
@@ -618,7 +638,7 @@ body > * { position: relative; z-index: 1; }
   letter-spacing: 0.08em;
 }
 .monday-footer .foot-tagline {
-  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-style: italic;
   color: rgba(245,235,221,0.6);
   margin-bottom: 24px;

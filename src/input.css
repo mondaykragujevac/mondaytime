@@ -13,7 +13,7 @@
 
   /* Warm dark base */
   --color-base-100: #000000;  /* deepest bg */
-  --color-base-200: #141414;  /* section — neutralno tamno, bez braon tona */
+  --color-base-200: #e7b35a;  /* section — zlatna (alternacija sa crnim base-100) */
   --color-base-300: #241a13;  /* elevated / cards */
   --color-base-content: #f5ebdd; /* warm cream text */
 
