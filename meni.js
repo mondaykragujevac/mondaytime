@@ -1,15 +1,12 @@
-/* meni.js — render menija i (opciono) povlačenje cena iz Google Sheet-a.
+/* meni.js — render menija sa opcionalnim Google Sheets izvorom.
  *
- * KAKO POVEZATI GOOGLE SHEET:
- * 1. Napravi Sheet sa kolonama (prva vrsta zaglavlje): Category, Id, Icon, Name, Price
- *    - Category: naziv kategorije (npr. "Kafe & Topli napici")
- *    - Id: slug za anchor (npr. "kafe")
- *    - Icon: Font Awesome ime bez "fa-" (npr. "mug-hot")
- *    - Name: naziv stavke
- *    - Price: cena (samo broj ili prazno)
- * 2. File → Share → Publish to web → Sheet1 → CSV → Publish.
- * 3. Copy link i zalepi ga u MENU_SHEET_CSV_URL ispod.
- * 4. Deploy — cene se automatski povlače iz Sheet-a pri svakom učitavanju strane.
+ * Google Sheet format (prva vrsta = zaglavlje):
+ *   Category | Id | Icon | Name | Price
+ *
+ * Kako povezati:
+ * 1. Napravi Sheet sa kolonama iznad (Icon je Font Awesome ime bez "fa-", npr. "mug-hot").
+ * 2. File → Share → Publish to web → izaberi list → CSV → Publish.
+ * 3. Zalepi URL u MENU_SHEET_CSV_URL ispod i pushni.
  */
 
 const MENU_SHEET_CSV_URL = ""; // npr: "https://docs.google.com/spreadsheets/d/e/XXX/pub?output=csv"
@@ -19,12 +16,12 @@ function renderMenu(data) {
   const root = document.getElementById("menu-root");
   if (!root) return;
 
-  const html = data.map(cat => {
+  const html = data.map((cat, idx) => {
     const items = (cat.items || []).map(it => {
       const price = (it.price || "").toString().trim();
       const priceHtml = price
         ? `<span class="price-value">${escapeHtml(price)}</span>`
-        : `<span class="price-value text-base-content/40">—</span>`;
+        : `<span class="price-value muted">—</span>`;
       return `
         <div class="price-row">
           <span class="price-name">${escapeHtml(it.name || "")}</span>
@@ -33,18 +30,27 @@ function renderMenu(data) {
         </div>`;
     }).join("");
     const iconName = (cat.icon || "mug-hot").replace(/^fa-/, "");
+    const id = cat.id || "cat-" + idx;
     return `
-      <section id="${escapeHtml(cat.id || "")}" class="mb-12">
-        <h2 class="category-title">
-          <i class="fa-solid fa-${escapeHtml(iconName)} text-brand mr-2"></i>
-          ${escapeHtml(cat.category || "")}
-        </h2>
+      <section id="${escapeHtml(id)}" class="menu-category reveal">
+        <div class="menu-category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-${escapeHtml(iconName)}"></i></div>
+          <h2>${escapeHtml(cat.category || "")}</h2>
+          <div class="divider-star"><span>✦</span></div>
+        </div>
         <div class="price-table">${items}</div>
       </section>
     `;
   }).join("");
 
   root.innerHTML = html;
+
+  // Re-observe any new .reveal elements
+  if (window.__menuIO) {
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (!el.classList.contains('in')) window.__menuIO.observe(el);
+    });
+  }
 }
 
 function escapeHtml(s) {
@@ -53,7 +59,7 @@ function escapeHtml(s) {
   }[c]));
 }
 
-/* ---- CSV parser (Google Sheets CSV) ---- */
+/* ---- CSV parser ---- */
 function parseCSV(text) {
   const rows = [];
   let row = [], cell = "", inQ = false;
@@ -113,16 +119,23 @@ function slugify(s) {
 
 /* ---- Boot ---- */
 (async function init() {
+  // Prepare shared scroll-reveal observer
+  window.__menuIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        window.__menuIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
   const fallback = window.__MENU_FALLBACK__ || [];
-  // Prvo odmah prikaži fallback (ne čeka fetch)
   renderMenu(fallback);
 
   const status = document.getElementById("menu-status");
+  if (status) status.textContent = "";
 
-  if (!MENU_SHEET_CSV_URL) {
-    if (status) status.textContent = "";
-    return;
-  }
+  if (!MENU_SHEET_CSV_URL) return;
 
   try {
     const res = await fetch(MENU_SHEET_CSV_URL, { cache: "no-store" });
@@ -130,14 +143,19 @@ function slugify(s) {
     const text = await res.text();
     const rows = parseCSV(text);
     const data = rowsToMenu(rows);
-    if (data.length) {
-      renderMenu(data);
-      if (status) status.textContent = "";
-    } else if (status) {
-      status.textContent = "Napomena: Sheet nema validne podatke, prikazana je statička verzija.";
-    }
+    if (data.length) renderMenu(data);
   } catch (err) {
     console.warn("Ne mogu da povučem Sheet, prikazan fallback:", err);
-    if (status) status.textContent = "";
   }
+
+  // Smooth-scroll za jump linkove sa offsetom za sticky bar
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (ev) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1 && document.querySelector(id)) {
+        ev.preventDefault();
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 })();

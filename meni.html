@@ -5,71 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meni — Monday</title>
   <meta name="description" content="Monday — meni i cenovnik. Kafe, milkshakes, sokovi, alkoholna pića." />
+  <meta name="theme-color" content="#120c08" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/dist/output.css" />
   <link rel="stylesheet" href="/custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
-<body class="min-h-screen bg-base-100">
+<body class="min-h-screen">
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <header class="monday-nav sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <span class="font-heading text-2xl font-bold tracking-widest text-black">MONDAY</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a>
-        <a href="/#promocija"   class="nav-link">Promocija</a>
-        <a href="/meni"         class="nav-link">Meni</a>
-        <a href="/#lokacija"    class="nav-link">Lokacija</a>
-        <a href="/#galerija"    class="nav-link">Galerija</a>
-      </nav>
-      <button id="mobile-menu-btn" class="md:hidden text-2xl text-black" aria-label="Meni">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-black/10">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3">
-        <a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a>
-        <a href="/#promocija"   class="nav-link">Promocija</a>
-        <a href="/meni"         class="nav-link">Meni</a>
-        <a href="/#lokacija"    class="nav-link">Lokacija</a>
-        <a href="/#galerija"    class="nav-link">Galerija</a>
+    <div class="navbar max-w-6xl mx-auto px-4">
+      <div class="navbar-start">
+        <a href="/" class="monday-brand">MONDAY</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal gap-2 px-1">
+          <li><a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a></li>
+          <li><a href="/#promocija"    class="nav-link">Promocija</a></li>
+          <li><a href="/meni"          class="nav-link active">Meni</a></li>
+          <li><a href="/#lokacija"     class="nav-link">Lokacija</a></li>
+          <li><a href="/#galerija"     class="nav-link">Galerija</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" class="hidden lg:inline-flex btn btn-ghost btn-circle text-primary hover:text-accent" aria-label="Instagram">
+          <i class="fa-brands fa-instagram text-xl"></i>
+        </a>
+        <div class="dropdown dropdown-end lg:hidden">
+          <button tabindex="0" class="btn btn-ghost btn-circle text-primary" aria-label="Meni">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow-lg bg-base-200 rounded-box w-52 border border-primary/20">
+            <li><a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a></li>
+            <li><a href="/#promocija"    class="nav-link">Promocija</a></li>
+            <li><a href="/meni"          class="nav-link active">Meni</a></li>
+            <li><a href="/#lokacija"     class="nav-link">Lokacija</a></li>
+            <li><a href="/#galerija"     class="nav-link">Galerija</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="section bg-base-200 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-3">Meni</h1>
-      <p class="text-base-content/70">Cene su u dinarima (RSD).</p>
-    </div>
+  <section class="menu-hero">
+    <div class="hero-eyebrow"><span class="line"></span>CENOVNIK<span class="line"></span></div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 8vw, 5rem);">Meni</h1>
+    <p class="hero-sub" style="margin-top: .5rem;">Svaka šoljica postaje eliksir hrabrosti.<br/><span class="text-sm opacity-70 not-italic">Cene su u dinarima (RSD).</span></p>
   </section>
 
-  <!-- Jump links -->
-  <nav class="bg-base-100 border-b border-black/5">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap justify-center gap-2 text-sm">
-      <a href="#kafe"      class="btn-monday" style="padding:8px 14px; font-size:13px;">Kafe & Topli napici</a>
-      <a href="#milkshake" class="btn-monday" style="padding:8px 14px; font-size:13px;">Milkshake</a>
-      <a href="#sokovi"    class="btn-monday" style="padding:8px 14px; font-size:13px;">Sokovi & Vode</a>
-      <a href="#alkohol"   class="btn-monday" style="padding:8px 14px; font-size:13px;">Alkoholna pića</a>
+  <!-- Jump links (sticky) -->
+  <nav class="menu-jumpbar">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-2">
+      <a href="#kafe"><i class="fa-solid fa-mug-hot"></i>Kafe</a>
+      <a href="#milkshake"><i class="fa-solid fa-ice-cream"></i>Milkshake</a>
+      <a href="#sokovi"><i class="fa-solid fa-bottle-water"></i>Sokovi</a>
+      <a href="#alkohol"><i class="fa-solid fa-wine-glass"></i>Alkohol</a>
     </div>
   </nav>
 
   <!-- MENU BODY -->
-  <section class="section bg-base-100">
-    <div class="max-w-3xl mx-auto">
+  <section class="section">
+    <div class="max-w-5xl mx-auto">
       <div id="menu-root" aria-live="polite">
-        <!-- Render target. Inicijalno se prikazuje statička verzija iz window.__MENU_FALLBACK__.
-             Ako je podešen MENU_SHEET_CSV_URL u menu.js, povlači se iz Google Sheet-a. -->
+        <!-- JS renderuje kategorije sa ikonicama i stavke sa cenama. -->
       </div>
       <p id="menu-status" class="text-center text-sm text-base-content/50 mt-6"></p>
+      <p class="text-center text-sm text-base-content/50 mt-4 font-script italic">* PDV je uračunat u cenu.</p>
     </div>
   </section>
 
@@ -77,20 +84,31 @@
   <footer class="monday-footer">
     <div class="max-w-5xl mx-auto">
       <div class="foot-logo">MONDAY</div>
-      <div class="flex flex-wrap justify-center gap-4 mb-2">
+      <p class="foot-tagline">Za savršen početak nedelje.</p>
+
+      <div class="socials">
         <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fa-brands fa-instagram text-2xl"></i>
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="mailto:hello@mondaytime.rs" aria-label="Email">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+        <a href="tel:+38161302100" aria-label="Telefon">
+          <i class="fa-solid fa-phone"></i>
         </a>
       </div>
-      <p>Kragujevac · <a href="tel:+38161302100">061/30-20-100</a></p>
-      <p class="foot-small">Monday © 2025.</p>
+
+      <p class="text-sm">Plato Doma samoupravljača · Trg Slobode 1 · Kragujevac</p>
+      <p class="text-sm"><a href="tel:+38161302100">061/30-20-100</a> · <a href="mailto:hello@mondaytime.rs">hello@mondaytime.rs</a></p>
+
+      <p class="foot-small">MONDAY © 2025.</p>
     </div>
   </footer>
 
   <!-- FALLBACK DATA (tekst i cene sa mondaytime.rs) -->
   <script>
   window.__MENU_FALLBACK__ = [
-    { category: "Kafe & Topli napici", id: "kafe", icon: "fa-mug-hot", items: [
+    { category: "Kafe & Topli napici", id: "kafe", icon: "mug-hot", items: [
       { name: "Espresso",                        price: "170" },
       { name: "Espresso sa mlekom",              price: "190" },
       { name: "Casppuccino",                     price: "220" },
@@ -103,11 +121,11 @@
       { name: "Domaća kafa 100g",                price: "240" },
       { name: "Dodatak šlag",                    price: "" }
     ]},
-    { category: "Milkshake", id: "milkshake", icon: "fa-ice-cream", items: [
+    { category: "Milkshake", id: "milkshake", icon: "ice-cream", items: [
       { name: "Milkshake",    price: "270" },
       { name: "Plazma shake", price: "310" }
     ]},
-    { category: "Sokovi & Vode", id: "sokovi", icon: "fa-bottle-water", items: [
+    { category: "Sokovi & Vode", id: "sokovi", icon: "bottle-water", items: [
       { name: "Coca-Cola limenka",                               price: "190" },
       { name: "Coca-Cola Zero limenka",                          price: "190" },
       { name: "Fanta limenka",                                   price: "190" },
@@ -125,37 +143,28 @@
       { name: "Ceđena pomorandža",                               price: "310" },
       { name: "Ceđeni Mix (limun, pomorandža, grejpfrut)",       price: "380" }
     ]},
-    { category: "Alkoholna pića", id: "alkohol", icon: "fa-wine-glass", items: [
-      { name: "Heineken 0.4",                    price: "290" },
-      { name: "Budweiser 0.33",                  price: "310" },
+    { category: "Alkoholna pića", id: "alkohol", icon: "wine-glass", items: [
+      { name: "Heineken 0.4",                      price: "290" },
+      { name: "Budweiser 0.33",                    price: "310" },
       { name: "Somersby flašica (jabuka, kruška)", price: "330" },
-      { name: "Vino flašica 0.187 (belo, crno)", price: "380" },
-      { name: "Kuvano vino",                     price: "320" },
-      { name: "Vinjak",                          price: "180" },
-      { name: "Vinjak 5",                        price: "280" },
-      { name: "Vodka",                           price: "180" },
-      { name: "Džin",                            price: "180" },
-      { name: "Pelinkovac",                      price: "210" },
-      { name: "Viljamovka",                      price: "250" },
-      { name: "Stomaklija",                      price: "190" },
-      { name: "Loza 13. juli",                   price: "240" },
-      { name: "Dar visova rakija od šljive",     price: "190" },
-      { name: "Dostojna rakija od šljive",       price: "310" },
-      { name: "Kuvana rakija",                   price: "280" },
-      { name: "Bacardi rum",                     price: "260" },
-      { name: "Jack Daniel\u2019s",              price: "380" }
+      { name: "Vino flašica 0.187 (belo, crno)",   price: "380" },
+      { name: "Kuvano vino",                       price: "320" },
+      { name: "Vinjak",                            price: "180" },
+      { name: "Vinjak 5",                          price: "280" },
+      { name: "Vodka",                             price: "180" },
+      { name: "Džin",                              price: "180" },
+      { name: "Pelinkovac",                        price: "210" },
+      { name: "Viljamovka",                        price: "250" },
+      { name: "Stomaklija",                        price: "190" },
+      { name: "Loza 13. juli",                     price: "240" },
+      { name: "Dar visova rakija od šljive",       price: "190" },
+      { name: "Dostojna rakija od šljive",         price: "310" },
+      { name: "Kuvana rakija",                     price: "280" },
+      { name: "Bacardi rum",                       price: "260" },
+      { name: "Jack Daniel\u2019s",                price: "380" }
     ]}
   ];
   </script>
   <script src="/meni.js"></script>
-
-  <script>
-    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-      document.getElementById('mobile-menu')?.classList.toggle('hidden');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(a => {
-      a.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'));
-    });
-  </script>
 </body>
 </html>

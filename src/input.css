@@ -4,35 +4,50 @@
   themes: monday --default;
 }
 
+/* Monday — cozy dark theme (default) */
 @plugin "daisyui/theme" {
   name: "monday";
   default: true;
-  prefersdark: false;
-  color-scheme: light;
-  --color-base-100: #ffffff;
-  --color-base-200: #faf7f1;
-  --color-base-300: #f0e9dc;
-  --color-base-content: #2a2a2a;
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Warm dark base */
+  --color-base-100: #120c08;  /* deepest bg */
+  --color-base-200: #1a130d;  /* section */
+  --color-base-300: #241a13;  /* elevated / cards */
+  --color-base-content: #f5ebdd; /* warm cream text */
+
+  /* Brand gold */
   --color-primary: #e7b35a;
-  --color-primary-content: #ffffff;
-  --color-secondary: #2c2c2c;
-  --color-secondary-content: #ffffff;
-  --color-accent: #e7b35a;
-  --color-accent-content: #ffffff;
-  --color-neutral: #2c2c2c;
-  --color-neutral-content: #ffffff;
-  --color-info: #3abff8;
-  --color-info-content: #ffffff;
-  --color-success: #36d399;
-  --color-success-content: #ffffff;
-  --color-warning: #fbbd23;
-  --color-warning-content: #ffffff;
-  --color-error: #f87272;
-  --color-error-content: #ffffff;
-  --radius-selector: 0;
-  --radius-field: 0;
-  --radius-box: 0;
+  --color-primary-content: #1a120b;
+
+  /* Warm coffee secondary */
+  --color-secondary: #8b5a3c;
+  --color-secondary-content: #fff3e3;
+
+  /* Accent */
+  --color-accent: #f3c477;
+  --color-accent-content: #1a120b;
+
+  /* Neutral (surfaces) */
+  --color-neutral: #1f1611;
+  --color-neutral-content: #f5ebdd;
+
+  /* Status */
+  --color-info: #7ac6d4;
+  --color-info-content: #0b1518;
+  --color-success: #8fbf7a;
+  --color-success-content: #0e180a;
+  --color-warning: #e8b263;
+  --color-warning-content: #1a120b;
+  --color-error: #d47b7b;
+  --color-error-content: #fff3e3;
+
+  /* Shape */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
   --border: 1px;
-  --depth: 0;
+  --depth: 1;
   --noise: 0;
 }

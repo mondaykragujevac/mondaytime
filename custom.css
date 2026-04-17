@@ -1,227 +1,658 @@
-/* Monday — custom site styles */
+/* Monday — cozy dark, warm, magical */
 
-/* Fonts */
+/* ---------- Typography ---------- */
 body {
-  font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
-  color: #555;
-  font-size: 16px;
+  font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.005em;
   line-height: 1.7;
+  background-color: #120c08;
+  color: #e8dccb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6,
-.font-heading {
-  font-family: "Roboto Condensed", Helvetica, Arial, Verdana, sans-serif;
-  color: #000;
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
   letter-spacing: 0.01em;
+  color: #f5ebdd;
+  line-height: 1.2;
 }
 
-/* Brand accent helper */
+.font-logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.font-script {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-body {
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+/* ---------- Cozy atmospheric background ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(231,179,90,0.10), transparent 60%),
+    radial-gradient(900px 600px at 95% 100%, rgba(139,90,60,0.12), transparent 65%),
+    radial-gradient(700px 500px at 50% 50%, rgba(231,179,90,0.04), transparent 70%);
+}
+body::after {
+  /* subtle film grain */
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.9'/></svg>");
+  mix-blend-mode: overlay;
+}
+body > * { position: relative; z-index: 1; }
+
+/* ---------- Brand helpers ---------- */
 .text-brand { color: #e7b35a; }
 .bg-brand   { background-color: #e7b35a; }
+.hl-brand   { color: #f3c477; }
 
-/* Flat, sharp CTA like na mondaytime.rs */
-.btn-monday {
-  display: inline-block;
-  background: #e7b35a;
-  color: #fff !important;
-  padding: 12px 22px;
-  font-weight: 700;
-  text-transform: none;
-  letter-spacing: 0.02em;
-  border: 0;
-  border-radius: 0;
-  transition: background .2s ease, transform .2s ease;
-}
-.btn-monday:hover {
-  background: #d6a14a;
-  transform: translateY(-1px);
-}
-
-/* Section dividers */
-.section {
-  padding: 72px 16px;
-}
-@media (max-width: 640px) {
-  .section { padding: 48px 16px; }
-}
-
-/* Navbar */
-.monday-nav {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-.monday-nav a.nav-link {
+/* Divider with star */
+.divider-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   color: #e7b35a;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 13px;
+  margin: 1.25rem 0;
 }
-.monday-nav a.nav-link:hover { color: #d6a14a; }
-
-/* Hero tagline */
-.monday-tagline {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  color: #000;
+.divider-star::before,
+.divider-star::after {
+  content: "";
+  flex: 0 1 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(231,179,90,0.5), transparent);
 }
 
-/* About paragraphs */
-.about-para {
-  font-size: 18px;
-  line-height: 1.75;
-  color: #3a3a3a;
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 1.25rem auto;
-}
-.about-para strong { color: #000; }
-
-/* Info blocks (Lokacija / Radno vreme / Kontakt) */
-.info-block {
-  text-align: center;
-  padding: 20px;
-}
-.info-block h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #000;
-}
-.info-block p {
-  margin: 4px 0;
-  color: #444;
-}
-.info-divider {
-  width: 1px;
-  background: rgba(0,0,0,0.08);
+/* Section padding */
+.section {
+  padding: 96px 16px;
 }
 @media (max-width: 768px) {
-  .info-divider { display: none; }
+  .section { padding: 64px 16px; }
 }
 
-/* Promocija card */
-.promo-card {
-  background: #faf7f1;
-  padding: 40px 24px;
+/* ---------- Navbar ---------- */
+.monday-nav {
+  background: rgba(12,8,5,0.72);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-bottom: 1px solid rgba(231,179,90,0.10);
+}
+.monday-nav .nav-link {
+  color: rgba(245,235,221,0.82);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 8px 4px;
+  position: relative;
+  transition: color .2s ease;
+}
+.monday-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 4px; right: 4px; bottom: 0;
+  height: 1px;
+  background: #e7b35a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+.monday-nav .nav-link:hover,
+.monday-nav .nav-link.active {
+  color: #f3c477;
+}
+.monday-nav .nav-link:hover::after,
+.monday-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+.monday-brand {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  font-size: 22px;
+  color: #f5ebdd;
+  position: relative;
+}
+.monday-brand::before {
+  content: "✦";
+  color: #e7b35a;
+  font-size: 14px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero-cozy {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border: 1px solid #e7b35a;
+  overflow: hidden;
+  background:
+    radial-gradient(600px 400px at 50% 30%, rgba(231,179,90,0.22), transparent 60%),
+    linear-gradient(180deg, #120c08 0%, #0a0704 100%);
+}
+.hero-cozy::before {
+  /* subtle vignette */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.hero-cozy .hero-inner { position: relative; z-index: 2; padding: 3rem 1rem; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #e7b35a;
+  margin-bottom: 1.2rem;
+}
+.hero-eyebrow .line {
+  width: 30px; height: 1px; background: #e7b35a; display: inline-block;
+}
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: #f5ebdd;
+  text-shadow: 0 2px 30px rgba(231,179,90,0.2);
+  margin-bottom: 1rem;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: #e7b35a;
+}
+.hero-sub {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  color: rgba(245,235,221,0.82);
+  max-width: 640px;
+  margin: 0 auto 2rem auto;
+}
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-stars span {
+  position: absolute;
+  display: inline-block;
+  color: #e7b35a;
+  opacity: 0.5;
+  animation: twinkle 4s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(231,179,90,0.5);
+}
+.hero-stars span:nth-child(1) { left: 8%;  top: 22%; font-size: 12px; animation-delay: 0s; }
+.hero-stars span:nth-child(2) { left: 14%; top: 70%; font-size: 18px; animation-delay: 1.2s; }
+.hero-stars span:nth-child(3) { left: 85%; top: 18%; font-size: 14px; animation-delay: 0.6s; }
+.hero-stars span:nth-child(4) { left: 92%; top: 62%; font-size: 22px; animation-delay: 2s; }
+.hero-stars span:nth-child(5) { left: 50%; top: 8%;  font-size: 16px; animation-delay: 1.6s; }
+.hero-stars span:nth-child(6) { left: 72%; top: 88%; font-size: 10px; animation-delay: 0.3s; }
+.hero-stars span:nth-child(7) { left: 30%; top: 82%; font-size: 12px; animation-delay: 2.4s; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  50%      { opacity: 0.85; transform: scale(1.05); }
+}
+
+/* ---------- Buttons ---------- */
+.btn-monday {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e7b35a 0%, #d39a3f 100%);
+  color: #1a120b !important;
+  padding: 13px 26px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 999px;
+  box-shadow:
+    0 6px 20px rgba(231,179,90,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: all .25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-monday:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 30px rgba(231,179,90,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.btn-ghost-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #f3c477 !important;
+  padding: 13px 26px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(231,179,90,0.4);
+  border-radius: 999px;
+  transition: all .25s ease;
+}
+.btn-ghost-gold:hover {
+  border-color: #e7b35a;
+  color: #f5ebdd !important;
+  background: rgba(231,179,90,0.06);
+}
+
+/* ---------- Section titles ---------- */
+.section-eyebrow {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #e7b35a;
+  margin-bottom: 0.6rem;
+}
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: "";
+  width: 24px; height: 1px; background: #e7b35a;
+}
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  color: #f5ebdd;
+  margin-bottom: 0.4rem;
+}
+.section-title em {
+  font-style: italic;
+  color: #e7b35a;
+  font-weight: 400;
+}
+
+/* ---------- About text ---------- */
+.about-para {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.85;
+  color: rgba(245,235,221,0.88);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 1.1rem auto;
+}
+.about-para strong { color: #f3c477; font-weight: 600; }
+.about-para.quote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  color: #f3c477;
+  padding: 0 1rem;
+}
+
+/* ---------- Info cards (Lokacija / Vreme / Kontakt) ---------- */
+.info-card {
+  background: linear-gradient(180deg, rgba(36,26,19,0.9) 0%, rgba(26,19,13,0.9) 100%);
+  border: 1px solid rgba(231,179,90,0.15);
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  transition: all .3s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+.info-card:hover {
+  border-color: rgba(231,179,90,0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 40px rgba(231,179,90,0.08);
+}
+.info-card .icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(231,179,90,0.15), rgba(231,179,90,0.04));
+  border: 1px solid rgba(231,179,90,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+  color: #e7b35a;
+  font-size: 22px;
+  box-shadow: inset 0 0 20px rgba(231,179,90,0.06);
+}
+.info-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f5ebdd;
+  margin-bottom: 12px;
+}
+.info-card p {
+  font-family: "Inter", sans-serif;
+  color: rgba(245,235,221,0.8);
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+.info-card a { color: #f3c477; transition: color .2s ease; }
+.info-card a:hover { color: #fff; }
+
+/* ---------- Promocija card ---------- */
+.promo-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a130d 0%, #241a13 100%);
+  border: 1px solid rgba(231,179,90,0.3);
+  border-radius: 20px;
+  padding: 56px 32px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.promo-card::before {
+  content: "";
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent 0%, rgba(231,179,90,0.08) 25%, transparent 50%);
+  animation: spin 20s linear infinite;
+  pointer-events: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.promo-card > * { position: relative; z-index: 1; }
+.promo-card .promo-icon {
+  font-size: 52px;
+  color: #e7b35a;
+  margin-bottom: 16px;
+  text-shadow: 0 0 30px rgba(231,179,90,0.5);
 }
 .promo-card h3 {
-  color: #000;
-  font-size: 26px;
-  margin: 8px 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #f5ebdd;
+  margin-bottom: 10px;
 }
 .promo-card .price {
-  font-size: 28px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   color: #e7b35a;
   font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-/* Meni preview cards */
+/* ---------- Menu preview cards ---------- */
 .menu-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 28px 20px;
+  display: block;
+  background: linear-gradient(180deg, rgba(36,26,19,0.85) 0%, rgba(26,19,13,0.85) 100%);
+  border: 1px solid rgba(231,179,90,0.15);
+  border-radius: 16px;
+  padding: 36px 20px;
   text-align: center;
-  transition: border-color .2s ease, transform .2s ease;
+  transition: all .3s ease;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 .menu-card:hover {
   border-color: #e7b35a;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 30px rgba(231,179,90,0.1);
 }
 .menu-card .icon {
-  font-size: 32px;
+  font-size: 36px;
   color: #e7b35a;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  display: block;
+  transition: transform .3s ease;
 }
+.menu-card:hover .icon { transform: scale(1.1); }
 .menu-card h4 {
-  font-size: 18px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #000;
+  color: #f5ebdd;
   margin: 0;
 }
 
-/* Meni stranica — tabela cena */
+/* ---------- Meni stranica ---------- */
+.menu-hero {
+  background:
+    radial-gradient(500px 300px at 50% 40%, rgba(231,179,90,0.18), transparent 70%),
+    linear-gradient(180deg, #120c08, #0a0704);
+  padding: 96px 16px 40px;
+  text-align: center;
+}
+.menu-jumpbar {
+  background: rgba(12,8,5,0.7);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(231,179,90,0.10);
+  border-bottom: 1px solid rgba(231,179,90,0.10);
+  padding: 16px;
+  position: sticky;
+  top: 64px;
+  z-index: 30;
+}
+.menu-jumpbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,235,221,0.75);
+  border: 1px solid rgba(231,179,90,0.25);
+  transition: all .2s ease;
+}
+.menu-jumpbar a:hover {
+  border-color: #e7b35a;
+  color: #f3c477;
+  background: rgba(231,179,90,0.06);
+}
+.menu-category {
+  margin-bottom: 72px;
+}
+.menu-category-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.menu-category-head .icon-wrap {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(231,179,90,0.18), rgba(231,179,90,0.04));
+  border: 1px solid rgba(231,179,90,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px auto;
+  color: #e7b35a;
+  font-size: 26px;
+  box-shadow: inset 0 0 25px rgba(231,179,90,0.08);
+}
+.menu-category-head h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  color: #f5ebdd;
+  margin-bottom: 8px;
+}
+.menu-category-head .divider-star {
+  font-size: 14px;
+  color: #e7b35a;
+}
+
 .price-table {
-  width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
+  background: linear-gradient(180deg, rgba(36,26,19,0.5) 0%, rgba(26,19,13,0.5) 100%);
+  border: 1px solid rgba(231,179,90,0.12);
+  border-radius: 16px;
+  padding: 24px 28px;
+  backdrop-filter: blur(6px);
 }
-.price-table .price-row {
+.price-row {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px dashed rgba(0,0,0,0.08);
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(231,179,90,0.15);
 }
-.price-table .price-row:last-child { border-bottom: 0; }
-.price-table .price-name {
-  flex: 1;
-  color: #222;
-}
-.price-table .price-dots {
+.price-row:last-child { border-bottom: 0; }
+.price-name {
   flex: 0 0 auto;
-  border-bottom: 2px dotted rgba(0,0,0,0.15);
+  color: #f5ebdd;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.price-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(231,179,90,0.3);
+  transform: translateY(-5px);
   min-width: 20px;
-  flex: 1;
-  margin: 0 4px;
-  transform: translateY(-4px);
 }
-.price-table .price-value {
+.price-value {
   flex: 0 0 auto;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   color: #e7b35a;
-  min-width: 60px;
+  font-size: 1.15rem;
+  min-width: 70px;
   text-align: right;
 }
-.category-title {
-  text-align: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #000;
-  margin: 48px 0 20px 0;
-}
-.category-title::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 2px;
-  background: #e7b35a;
-  margin: 10px auto 0 auto;
+.price-value.muted {
+  color: rgba(231,179,90,0.4);
+  font-size: 1rem;
 }
 
-/* Footer */
-.monday-footer {
-  background: #0c0c0c;
-  color: #ddd;
-  padding: 40px 16px 24px 16px;
+/* ---------- Gallery / Instagram CTA ---------- */
+.gallery-cta {
+  background: linear-gradient(180deg, #120c08 0%, #1a130d 100%);
+  border: 1px solid rgba(231,179,90,0.15);
+  border-radius: 20px;
+  padding: 56px 24px;
   text-align: center;
-}
-.monday-footer a { color: #e7b35a; }
-.monday-footer .foot-logo {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #fff;
-  margin-bottom: 16px;
-}
-.monday-footer .foot-small {
-  font-size: 13px;
-  color: #999;
-  margin-top: 20px;
-}
-
-/* Util */
-.sr-only {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
+  position: relative;
+}
+.gallery-cta::before {
+  content: "📸";
+  position: absolute;
+  font-size: 180px;
+  opacity: 0.04;
+  left: -20px; top: -40px;
+  pointer-events: none;
+}
+
+/* ---------- Footer ---------- */
+.monday-footer {
+  background: #0a0604;
+  border-top: 1px solid rgba(231,179,90,0.1);
+  color: #cabba5;
+  padding: 56px 16px 28px 16px;
+  text-align: center;
+}
+.monday-footer .foot-logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: 0.2em;
+  color: #f5ebdd;
+  margin-bottom: 8px;
+}
+.monday-footer .foot-logo::before {
+  content: "✦";
+  color: #e7b35a;
+  margin-right: 12px;
+  font-size: 18px;
+  vertical-align: 6px;
+}
+.monday-footer a { color: #e7b35a; transition: color .2s ease; }
+.monday-footer a:hover { color: #f3c477; }
+.monday-footer .foot-small {
+  font-size: 12px;
+  color: #7a6f5d;
+  margin-top: 20px;
+  letter-spacing: 0.08em;
+}
+.monday-footer .foot-tagline {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: rgba(245,235,221,0.6);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+.monday-footer .socials {
+  display: inline-flex;
+  gap: 14px;
+  margin: 12px 0 16px 0;
+}
+.monday-footer .socials a {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(231,179,90,0.3);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  transition: all .25s ease;
+}
+.monday-footer .socials a:hover {
+  background: rgba(231,179,90,0.08);
+  border-color: #e7b35a;
+  transform: translateY(-2px);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0604; }
+::-webkit-scrollbar-thumb {
+  background: rgba(231,179,90,0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(231,179,90,0.4); }
+
+/* ---------- Utilities ---------- */
+.glow-gold {
+  text-shadow: 0 0 20px rgba(231,179,90,0.4);
+}
+.warm-border {
+  border: 1px solid rgba(231,179,90,0.2);
 }
