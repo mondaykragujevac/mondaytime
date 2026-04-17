@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="sr" data-theme="monday">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meni — Monday</title>
   <meta name="description" content="Monday — meni i cenovnik. Kafe, milkshakes, sokovi, alkoholna pića." />
   <meta name="theme-color" content="#000000" />
@@ -15,53 +15,71 @@
   <link rel="stylesheet" href="/custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
-<body class="min-h-screen">
+<body>
 
-  <!-- NAVBAR -->
-  <header class="monday-nav sticky top-0 z-40">
-    <div class="navbar max-w-6xl mx-auto px-4">
-      <div class="navbar-start">
-        <a href="/" class="monday-brand">MONDAY</a>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal gap-2 px-1">
-          <li><a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a></li>
-          <li><a href="/#promocija"    class="nav-link">Promocija</a></li>
-          <li><a href="/meni"          class="nav-link active">Meni</a></li>
-          <li><a href="/#lokacija"     class="nav-link">Lokacija</a></li>
-          <li><a href="/#galerija"     class="nav-link">Galerija</a></li>
-        </ul>
-      </div>
-      <div class="navbar-end">
-        <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" class="hidden lg:inline-flex btn btn-ghost btn-circle text-primary hover:text-accent" aria-label="Instagram">
-          <i class="fa-brands fa-instagram text-xl"></i>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">M</span>
+        <span>MONDAY</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#o-ponedeljku">O Ponedeljku</a></li>
+        <li><a href="/#promocija">Promocija</a></li>
+        <li><a href="/meni" class="active">Meni</a></li>
+        <li><a href="/#lokacija">Lokacija</a></li>
+        <li><a href="/#galerija">Galerija</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <a href="https://maps.app.goo.gl/yH9BxYwQXhPLRWdh9" target="_blank" rel="noopener" class="nav-cta">
+          Lokacija
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <div class="dropdown dropdown-end lg:hidden">
-          <button tabindex="0" class="btn btn-ghost btn-circle text-primary" aria-label="Meni">
-            <i class="fa-solid fa-bars text-xl"></i>
-          </button>
-          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow-lg bg-base-200 rounded-box w-52 border border-primary/20">
-            <li><a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a></li>
-            <li><a href="/#promocija"    class="nav-link">Promocija</a></li>
-            <li><a href="/meni"          class="nav-link active">Meni</a></li>
-            <li><a href="/#lokacija"     class="nav-link">Lokacija</a></li>
-            <li><a href="/#galerija"     class="nav-link">Galerija</a></li>
-          </ul>
-        </div>
+        <button class="theme-toggle" aria-label="Promeni temu">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Meni">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu">
+    <button class="close-btn" aria-label="Zatvori">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
+    </button>
+    <ul>
+      <li><a href="/#o-ponedeljku">O Ponedeljku</a></li>
+      <li><a href="/#promocija">Promocija</a></li>
+      <li><a href="/meni">Meni</a></li>
+      <li><a href="/#lokacija">Lokacija</a></li>
+      <li><a href="/#galerija">Galerija</a></li>
+    </ul>
+    <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;justify-content:center">
+      <i class="fa-brands fa-instagram"></i> @monday.time.rs
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container" style="position:relative;z-index:2">
+      <div class="center">
+        <div class="eyebrow">Cenovnik</div>
+        <h1>Meni</h1>
+        <p class="lead" style="margin:1rem auto 0;max-width:560px;color:var(--text-muted)">
+          Svaka šoljica postaje eliksir hrabrosti. <span style="opacity:.7">Cene su u dinarima (RSD).</span>
+        </p>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="menu-hero">
-    <div class="hero-eyebrow"><span class="line"></span>CENOVNIK<span class="line"></span></div>
-    <h1 class="hero-title" style="font-size: clamp(2.5rem, 8vw, 5rem);">Meni</h1>
-    <p class="hero-sub" style="margin-top: .5rem;">Svaka šoljica postaje eliksir hrabrosti.<br/><span class="text-sm opacity-70 not-italic">Cene su u dinarima (RSD).</span></p>
-  </section>
-
-  <!-- Jump links (sticky) -->
-  <nav class="menu-jumpbar">
-    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-2">
+  <!-- Jump links -->
+  <nav class="jumpbar">
+    <div class="jumpbar-inner">
       <a href="#kafe"><i class="fa-solid fa-mug-hot"></i>Kafe</a>
       <a href="#milkshake"><i class="fa-solid fa-ice-cream"></i>Milkshake</a>
       <a href="#sokovi"><i class="fa-solid fa-bottle-water"></i>Sokovi</a>
@@ -70,38 +88,66 @@
   </nav>
 
   <!-- MENU BODY -->
-  <section class="section">
-    <div class="max-w-5xl mx-auto">
-      <div id="menu-root" aria-live="polite">
-        <!-- JS renderuje kategorije sa ikonicama i stavke sa cenama. -->
-      </div>
-      <p id="menu-status" class="text-center text-sm text-base-content/50 mt-6"></p>
-      <p class="text-center text-sm text-base-content/50 mt-4 font-script italic">* PDV je uračunat u cenu.</p>
+  <section>
+    <div class="container">
+      <div id="menu-root" aria-live="polite"><!-- Render target --></div>
+      <p id="menu-status" class="center" style="font-size:.85rem;color:var(--text-dim);margin-top:1.5rem"></p>
+      <p class="center" style="font-size:.85rem;color:var(--text-dim);margin-top:.5rem;font-style:italic">
+        * PDV je uračunat u cenu.
+      </p>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="monday-footer">
-    <div class="max-w-5xl mx-auto">
-      <div class="foot-logo">MONDAY</div>
-      <p class="foot-tagline">Za savršen početak nedelje.</p>
-
-      <div class="socials">
-        <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="mailto:hello@mondaytime.rs" aria-label="Email">
-          <i class="fa-regular fa-envelope"></i>
-        </a>
-        <a href="tel:+38161302100" aria-label="Telefon">
-          <i class="fa-solid fa-phone"></i>
-        </a>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom:1rem">
+            <span class="logo-mark">M</span>
+            <span>MONDAY</span>
+          </div>
+          <p style="max-width:320px;font-size:.9rem;color:var(--text-muted)">
+            Za savršen početak nedelje. Čarobna oaza u srcu Kragujevca.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:hello@mondaytime.rs" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+            <a href="tel:+38161302100" aria-label="Telefon"><i class="fa-solid fa-phone"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Stranice</h4>
+          <ul>
+            <li><a href="/">Naslovna</a></li>
+            <li><a href="/#o-ponedeljku">O Ponedeljku</a></li>
+            <li><a href="/meni">Meni</a></li>
+            <li><a href="/#promocija">Promocija</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Lokacija</h4>
+          <ul>
+            <li>Plato Doma samoupravljača</li>
+            <li>Trg Slobode 1</li>
+            <li>Kragujevac</li>
+            <li><a href="https://maps.app.goo.gl/yH9BxYwQXhPLRWdh9" target="_blank" rel="noopener">Nađi na mapi →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:hello@mondaytime.rs">hello@mondaytime.rs</a></li>
+            <li><a href="tel:+38161302100">061/30-20-100</a></li>
+            <li>Pon-Pet: 9-20h</li>
+            <li>Sub-Ned: 10-20h</li>
+          </ul>
+        </div>
       </div>
-
-      <p class="text-sm">Plato Doma samoupravljača · Trg Slobode 1 · Kragujevac</p>
-      <p class="text-sm"><a href="tel:+38161302100">061/30-20-100</a> · <a href="mailto:hello@mondaytime.rs">hello@mondaytime.rs</a></p>
-
-      <p class="foot-small">MONDAY © 2025.</p>
+      <div class="footer-bottom">
+        <div>&copy; 2025 Monday Café Kragujevac. Sva prava zadržana.</div>
+        <div>Za savršen početak nedelje.</div>
+      </div>
     </div>
   </footer>
 
@@ -166,5 +212,25 @@
   ];
   </script>
   <script src="/meni.js"></script>
+
+  <script>
+    // Theme toggle
+    const root = document.documentElement;
+    const saved = localStorage.getItem('monday-theme');
+    if (saved === 'light') root.setAttribute('data-theme', 'light');
+    document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if (isLight) { root.removeAttribute('data-theme'); localStorage.setItem('monday-theme','dark'); }
+      else { root.setAttribute('data-theme','light'); localStorage.setItem('monday-theme','light'); }
+    });
+
+    // Mobile menu
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', () =>
+      document.querySelector('.mobile-menu')?.classList.add('open'));
+    document.querySelector('.mobile-menu .close-btn')?.addEventListener('click', () =>
+      document.querySelector('.mobile-menu')?.classList.remove('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a =>
+      a.addEventListener('click', () => document.querySelector('.mobile-menu')?.classList.remove('open')));
+  </script>
 </body>
 </html>
