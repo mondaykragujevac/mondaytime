@@ -64,7 +64,7 @@ body > * { position: relative; z-index: 1; }
 /* ---------- Brand helpers ---------- */
 .text-brand { color: #e7b35a; }
 .bg-brand   { background-color: #e7b35a; }
-.hl-brand   { color: #f3c477; }
+.hl-brand   { color: #e7b35a; }
 
 /* Divider with star */
 .divider-star {
@@ -120,7 +120,7 @@ body > * { position: relative; z-index: 1; }
 }
 .monday-nav .nav-link:hover,
 .monday-nav .nav-link.active {
-  color: #f3c477;
+  color: #e7b35a;
 }
 .monday-nav .nav-link:hover::after,
 .monday-nav .nav-link.active::after {
@@ -236,7 +236,7 @@ body > * { position: relative; z-index: 1; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #e7b35a 0%, #d39a3f 100%);
+  background: linear-gradient(135deg, #e7b35a 0%, #e7b35a 100%);
   color: #1a120b !important;
   padding: 13px 26px;
   font-weight: 700;
@@ -263,7 +263,7 @@ body > * { position: relative; z-index: 1; }
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: #f3c477 !important;
+  color: #e7b35a !important;
   padding: 13px 26px;
   font-weight: 600;
   font-size: 14px;
@@ -318,12 +318,12 @@ body > * { position: relative; z-index: 1; }
   max-width: 720px;
   margin: 0 auto 1.1rem auto;
 }
-.about-para strong { color: #f3c477; font-weight: 600; }
+.about-para strong { color: #e7b35a; font-weight: 600; }
 .about-para.quote {
   font-family: "Inter", "Roboto", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  color: #f3c477;
+  color: #e7b35a;
   padding: 0 1rem;
 }
 
@@ -380,7 +380,7 @@ body > * { position: relative; z-index: 1; }
   margin: 2px 0;
   font-size: 0.95rem;
 }
-.info-card a { color: #f3c477; transition: color .2s ease; }
+.info-card a { color: #e7b35a; transition: color .2s ease; }
 .info-card a:hover { color: #fff; }
 
 /* ---------- Promocija card ---------- */
@@ -491,7 +491,7 @@ body > * { position: relative; z-index: 1; }
 }
 .menu-jumpbar a:hover {
   border-color: #e7b35a;
-  color: #f3c477;
+  color: #e7b35a;
   background: rgba(231,179,90,0.06);
 }
 .menu-category {
@@ -610,7 +610,7 @@ body > * { position: relative; z-index: 1; }
   vertical-align: 6px;
 }
 .monday-footer a { color: #e7b35a; transition: color .2s ease; }
-.monday-footer a:hover { color: #f3c477; }
+.monday-footer a:hover { color: #e7b35a; }
 .monday-footer .foot-small {
   font-size: 12px;
   color: #7a6f5d;
