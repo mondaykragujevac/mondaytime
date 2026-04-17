@@ -1,0 +1,6 @@
+/* Zajednički stilovi za ceo sajt */
+
+[data-theme="dark"] strong,
+[data-theme="dark"] b {
+  color: #ffffff;
+}
