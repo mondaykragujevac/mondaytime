@@ -188,8 +188,9 @@ body > * { position: relative; z-index: 1; }
   margin-bottom: 1rem;
 }
 .hero-title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: inherit;
+  font-family: inherit;
   color: #e7b35a;
 }
 .hero-sub {
