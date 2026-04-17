@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="sr" data-theme="monday">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meni — Monday</title>
+  <meta name="description" content="Monday — meni i cenovnik. Kafe, milkshakes, sokovi, alkoholna pića." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/dist/output.css" />
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body class="min-h-screen bg-base-100">
+
+  <!-- NAV -->
+  <header class="monday-nav sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <span class="font-heading text-2xl font-bold tracking-widest text-black">MONDAY</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a>
+        <a href="/#promocija"   class="nav-link">Promocija</a>
+        <a href="/meni"         class="nav-link">Meni</a>
+        <a href="/#lokacija"    class="nav-link">Lokacija</a>
+        <a href="/#galerija"    class="nav-link">Galerija</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden text-2xl text-black" aria-label="Meni">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-black/10">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="/#o-ponedeljku" class="nav-link">O Ponedeljku</a>
+        <a href="/#promocija"   class="nav-link">Promocija</a>
+        <a href="/meni"         class="nav-link">Meni</a>
+        <a href="/#lokacija"    class="nav-link">Lokacija</a>
+        <a href="/#galerija"    class="nav-link">Galerija</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="section bg-base-200 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-3">Meni</h1>
+      <p class="text-base-content/70">Cene su u dinarima (RSD).</p>
+    </div>
+  </section>
+
+  <!-- Jump links -->
+  <nav class="bg-base-100 border-b border-black/5">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap justify-center gap-2 text-sm">
+      <a href="#kafe"      class="btn-monday" style="padding:8px 14px; font-size:13px;">Kafe & Topli napici</a>
+      <a href="#milkshake" class="btn-monday" style="padding:8px 14px; font-size:13px;">Milkshake</a>
+      <a href="#sokovi"    class="btn-monday" style="padding:8px 14px; font-size:13px;">Sokovi & Vode</a>
+      <a href="#alkohol"   class="btn-monday" style="padding:8px 14px; font-size:13px;">Alkoholna pića</a>
+    </div>
+  </nav>
+
+  <!-- MENU BODY -->
+  <section class="section bg-base-100">
+    <div class="max-w-3xl mx-auto">
+      <div id="menu-root" aria-live="polite">
+        <!-- Render target. Inicijalno se prikazuje statička verzija iz window.__MENU_FALLBACK__.
+             Ako je podešen MENU_SHEET_CSV_URL u menu.js, povlači se iz Google Sheet-a. -->
+      </div>
+      <p id="menu-status" class="text-center text-sm text-base-content/50 mt-6"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="monday-footer">
+    <div class="max-w-5xl mx-auto">
+      <div class="foot-logo">MONDAY</div>
+      <div class="flex flex-wrap justify-center gap-4 mb-2">
+        <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram text-2xl"></i>
+        </a>
+      </div>
+      <p>Kragujevac · <a href="tel:+38161302100">061/30-20-100</a></p>
+      <p class="foot-small">Monday © 2025.</p>
+    </div>
+  </footer>
+
+  <!-- FALLBACK DATA (tekst i cene sa mondaytime.rs) -->
+  <script>
+  window.__MENU_FALLBACK__ = [
+    { category: "Kafe & Topli napici", id: "kafe", icon: "fa-mug-hot", items: [
+      { name: "Espresso",                        price: "170" },
+      { name: "Espresso sa mlekom",              price: "190" },
+      { name: "Casppuccino",                     price: "220" },
+      { name: "Latte espresso",                  price: "260" },
+      { name: "Nes kafa",                        price: "240" },
+      { name: "Tonic espresso",                  price: "230" },
+      { name: "Domaća kafa",                     price: "140" },
+      { name: "Topla čokolada",                  price: "240" },
+      { name: "Milford čaj sa medom i limunom",  price: "180" },
+      { name: "Domaća kafa 100g",                price: "240" },
+      { name: "Dodatak šlag",                    price: "" }
+    ]},
+    { category: "Milkshake", id: "milkshake", icon: "fa-ice-cream", items: [
+      { name: "Milkshake",    price: "270" },
+      { name: "Plazma shake", price: "310" }
+    ]},
+    { category: "Sokovi & Vode", id: "sokovi", icon: "fa-bottle-water", items: [
+      { name: "Coca-Cola limenka",                               price: "190" },
+      { name: "Coca-Cola Zero limenka",                          price: "190" },
+      { name: "Fanta limenka",                                   price: "190" },
+      { name: "Sprite limenka",                                  price: "190" },
+      { name: "Bitter lemon limenka",                            price: "210" },
+      { name: "Tonic limenka",                                   price: "210" },
+      { name: "Ultra limenka",                                   price: "220" },
+      { name: "Bravo limenka (jabuka, breskva, đus, jagoda, borovnica)", price: "190" },
+      { name: "Ice tea",                                         price: "160" },
+      { name: "Gazirana voda 0.5",                               price: "" },
+      { name: "Gazirana Rosa 0.33",                              price: "160" },
+      { name: "Negazirana voda",                                 price: "" },
+      { name: "Cedevita",                                        price: "160" },
+      { name: "Limunada",                                        price: "230" },
+      { name: "Ceđena pomorandža",                               price: "310" },
+      { name: "Ceđeni Mix (limun, pomorandža, grejpfrut)",       price: "380" }
+    ]},
+    { category: "Alkoholna pića", id: "alkohol", icon: "fa-wine-glass", items: [
+      { name: "Heineken 0.4",                    price: "290" },
+      { name: "Budweiser 0.33",                  price: "310" },
+      { name: "Somersby flašica (jabuka, kruška)", price: "330" },
+      { name: "Vino flašica 0.187 (belo, crno)", price: "380" },
+      { name: "Kuvano vino",                     price: "320" },
+      { name: "Vinjak",                          price: "180" },
+      { name: "Vinjak 5",                        price: "280" },
+      { name: "Vodka",                           price: "180" },
+      { name: "Džin",                            price: "180" },
+      { name: "Pelinkovac",                      price: "210" },
+      { name: "Viljamovka",                      price: "250" },
+      { name: "Stomaklija",                      price: "190" },
+      { name: "Loza 13. juli",                   price: "240" },
+      { name: "Dar visova rakija od šljive",     price: "190" },
+      { name: "Dostojna rakija od šljive",       price: "310" },
+      { name: "Kuvana rakija",                   price: "280" },
+      { name: "Bacardi rum",                     price: "260" },
+      { name: "Jack Daniel\u2019s",              price: "380" }
+    ]}
+  ];
+  </script>
+  <script src="/meni.js"></script>
+
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      document.getElementById('mobile-menu')?.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>

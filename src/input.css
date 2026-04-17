@@ -1,4 +1,38 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: monday --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "monday";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #faf7f1;
+  --color-base-300: #f0e9dc;
+  --color-base-content: #2a2a2a;
+  --color-primary: #e7b35a;
+  --color-primary-content: #ffffff;
+  --color-secondary: #2c2c2c;
+  --color-secondary-content: #ffffff;
+  --color-accent: #e7b35a;
+  --color-accent-content: #ffffff;
+  --color-neutral: #2c2c2c;
+  --color-neutral-content: #ffffff;
+  --color-info: #3abff8;
+  --color-info-content: #ffffff;
+  --color-success: #36d399;
+  --color-success-content: #ffffff;
+  --color-warning: #fbbd23;
+  --color-warning-content: #ffffff;
+  --color-error: #f87272;
+  --color-error-content: #ffffff;
+  --radius-selector: 0;
+  --radius-field: 0;
+  --radius-box: 0;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }

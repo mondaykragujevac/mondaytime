@@ -1,33 +1,195 @@
 <!doctype html>
-<html lang="sr" data-theme="light">
+<html lang="sr" data-theme="monday">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monday — auto škola Kragujevac</title>
-  <meta name="description" content="Monday — auto škola u Kragujevcu." />
+  <title>Monday — Za savršen početak nedelje</title>
+  <meta name="description" content="Monday — kafić u Kragujevcu. Plato Doma samoupravljača, Trg Slobode 1." />
+  <meta property="og:title" content="Monday — Za savršen početak nedelje" />
+  <meta property="og:description" content="Kafić u srcu Kragujevca. Plato Doma samoupravljača, Trg Slobode 1." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/dist/output.css" />
   <link rel="stylesheet" href="/custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-base-100">
+
+  <!-- NAV -->
+  <header class="monday-nav sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <span class="font-heading text-2xl font-bold tracking-widest text-black">MONDAY</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#o-ponedeljku" class="nav-link">O Ponedeljku</a>
+        <a href="#promocija"   class="nav-link">Promocija</a>
+        <a href="/meni"        class="nav-link">Meni</a>
+        <a href="#lokacija"    class="nav-link">Lokacija</a>
+        <a href="#galerija"    class="nav-link">Galerija</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden text-2xl text-black" aria-label="Meni">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-black/10">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="#o-ponedeljku" class="nav-link">O Ponedeljku</a>
+        <a href="#promocija"   class="nav-link">Promocija</a>
+        <a href="/meni"        class="nav-link">Meni</a>
+        <a href="#lokacija"    class="nav-link">Lokacija</a>
+        <a href="#galerija"    class="nav-link">Galerija</a>
+      </div>
+    </div>
+  </header>
 
   <!-- HERO -->
-  <section class="bg-base-200">
-    <div class="max-w-5xl mx-auto px-4 py-16 text-center">
-      <h1 class="text-4xl md:text-6xl font-black mb-4">Monday</h1>
-      <p class="text-lg md:text-xl opacity-80">Auto škola · Kragujevac</p>
+  <section class="section bg-base-200 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="monday-tagline text-3xl md:text-5xl mb-2">Za savršen početak nedelje.</h1>
     </div>
   </section>
 
-  <!-- CONTENT PLACEHOLDER -->
-  <section class="bg-base-100">
-    <div class="max-w-5xl mx-auto px-4 py-12">
-      <div class="prose max-w-none">
-        <p class="opacity-70">Sadržaj se dodaje uskoro.</p>
+  <!-- O PONEDELJKU -->
+  <section id="o-ponedeljku" class="section bg-base-100">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-4xl md:text-5xl font-bold mb-12">O Ponedeljku</h2>
+
+      <p class="about-para">U srcu grada, gde se senke prepliću sa svetlom, stvorila se čarobna oaza zvana <strong>Monday</strong>. ✨</p>
+
+      <p class="about-para">U ovom malom utočištu, dva para hrabrih sanjara spojila su svoje snage da stvore mesto gde cozy atmosfera mami svakog posetioca da se oslobodi briga i uroni u magiju svakodnevnog života.</p>
+
+      <p class="about-para">Ali, taj kafić skriva i svoje mračne tajne.</p>
+
+      <p class="about-para">Naš omiljeni dan, <strong>Halloween</strong>, donosi preobražaj. 🎃👻</p>
+
+      <p class="about-para">Dok se dani skraćuju, Monday se pretvara u epicentar čarolije i misterije.</p>
+
+      <p class="about-para">U Monday-u, svaka šoljica kafe postaje <strong>eliksir hrabrosti</strong>, a svaki napitak otvara vrata u svet snova.</p>
+
+      <p class="about-para">Pridružite nam se u ovoj epskoj avanturi, jer zajedno možemo osvetliti noći pune čarobnjaštva i stvoriti uspomene koje će trajati zauvek. 🌙🖤</p>
+
+      <div class="flex flex-wrap justify-center gap-3 mt-10">
+        <a href="https://maps.app.goo.gl/yH9BxYwQXhPLRWdh9" target="_blank" rel="noopener" class="btn-monday">Naša lokacija</a>
+        <a href="/meni" class="btn-monday">Pogledaj Meni</a>
       </div>
     </div>
   </section>
 
+  <!-- LOKACIJA / RADNO VREME / KONTAKT -->
+  <section id="lokacija" class="section bg-base-200">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl md:text-5xl font-bold mb-10">Lokacija</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="info-block">
+          <h3><i class="fa-solid fa-location-dot text-brand mr-2"></i>Lokacija</h3>
+          <p>Plato Doma samoupravljača</p>
+          <p>Trg Slobode 1</p>
+          <p>Kragujevac</p>
+        </div>
+
+        <div class="info-block border-x border-black/5">
+          <h3><i class="fa-regular fa-clock text-brand mr-2"></i>Radno vreme</h3>
+          <p>Radnim danima <strong>9-20h</strong></p>
+          <p>Vikendom <strong>10-20h</strong></p>
+        </div>
+
+        <div class="info-block">
+          <h3><i class="fa-regular fa-envelope text-brand mr-2"></i>Kontakt</h3>
+          <p><a href="mailto:hello@mondaytime.rs" class="hover:text-brand">hello@mondaytime.rs</a></p>
+          <p><a href="tel:+38161302100" class="hover:text-brand">061/30-20-100</a></p>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="https://maps.app.goo.gl/yH9BxYwQXhPLRWdh9" target="_blank" rel="noopener" class="btn-monday">
+          <i class="fa-solid fa-map-location-dot mr-2"></i>Nađi nas na mapi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOCIJA -->
+  <section id="promocija" class="section bg-base-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-center text-4xl md:text-5xl font-bold mb-10">Danas na promociji</h2>
+      <div class="promo-card">
+        <div class="text-5xl text-brand mb-3"><i class="fa-solid fa-mug-hot"></i></div>
+        <h3>Espresso kafa + Cedevita</h3>
+        <div class="price">350 din.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENI PREVIEW -->
+  <section id="meni-preview" class="section bg-base-200">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl md:text-5xl font-bold mb-10">Meni</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/meni#kafe" class="menu-card">
+          <div class="icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <h4>Kafe & Topli napici</h4>
+        </a>
+        <a href="/meni#milkshake" class="menu-card">
+          <div class="icon"><i class="fa-solid fa-ice-cream"></i></div>
+          <h4>Milkshake</h4>
+        </a>
+        <a href="/meni#sokovi" class="menu-card">
+          <div class="icon"><i class="fa-solid fa-bottle-water"></i></div>
+          <h4>Sokovi & Vode</h4>
+        </a>
+        <a href="/meni#alkohol" class="menu-card">
+          <div class="icon"><i class="fa-solid fa-wine-glass"></i></div>
+          <h4>Alkoholna pića</h4>
+        </a>
+      </div>
+      <div class="text-center mt-10">
+        <a href="/meni" class="btn-monday">Ceo meni</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIJA / INSTAGRAM -->
+  <section id="galerija" class="section bg-base-100">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Galerija</h2>
+      <p class="text-base-content/70 mb-8">Pratite naš Instagram za najnovije fotografije.</p>
+      <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" class="btn-monday">
+        <i class="fa-brands fa-instagram mr-2"></i>@monday.time.rs
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="monday-footer">
+    <div class="max-w-5xl mx-auto">
+      <div class="foot-logo">MONDAY</div>
+      <div class="flex flex-wrap justify-center gap-4 mb-2">
+        <a href="https://www.instagram.com/monday.time.rs/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram text-2xl"></i>
+        </a>
+      </div>
+      <p>Kragujevac · <a href="tel:+38161302100">061/30-20-100</a></p>
+      <p class="foot-small">Monday © 2025.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      if (m) m.classList.toggle('hidden');
+    });
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'));
+    });
+  </script>
 </body>
 </html>
