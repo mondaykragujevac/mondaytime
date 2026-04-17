@@ -6,7 +6,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.005em;
   line-height: 1.7;
-  background-color: #120c08;
+  background-color: #000000;
   color: #e8dccb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -153,7 +153,7 @@ body > * { position: relative; z-index: 1; }
   overflow: hidden;
   background:
     radial-gradient(600px 400px at 50% 30%, rgba(231,179,90,0.22), transparent 60%),
-    linear-gradient(180deg, #120c08 0%, #0a0704 100%);
+    linear-gradient(180deg, #000000 0%, #000000 100%);
 }
 .hero-cozy::before {
   /* subtle vignette */
@@ -448,7 +448,7 @@ body > * { position: relative; z-index: 1; }
 .menu-hero {
   background:
     radial-gradient(500px 300px at 50% 40%, rgba(231,179,90,0.18), transparent 70%),
-    linear-gradient(180deg, #120c08, #0a0704);
+    linear-gradient(180deg, #000000, #000000);
   padding: 96px 16px 40px;
   text-align: center;
 }
@@ -555,7 +555,7 @@ body > * { position: relative; z-index: 1; }
 
 /* ---------- Gallery / Instagram CTA ---------- */
 .gallery-cta {
-  background: linear-gradient(180deg, #120c08 0%, #1a130d 100%);
+  background: linear-gradient(180deg, #000000 0%, #1a130d 100%);
   border: 1px solid rgba(231,179,90,0.15);
   border-radius: 20px;
   padding: 56px 24px;

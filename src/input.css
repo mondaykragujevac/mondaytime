@@ -12,7 +12,7 @@
   color-scheme: dark;
 
   /* Warm dark base */
-  --color-base-100: #120c08;  /* deepest bg */
+  --color-base-100: #000000;  /* deepest bg */
   --color-base-200: #1a130d;  /* section */
   --color-base-300: #241a13;  /* elevated / cards */
   --color-base-content: #f5ebdd; /* warm cream text */
